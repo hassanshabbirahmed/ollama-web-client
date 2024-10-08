@@ -124,6 +124,52 @@ Or, provide the host machine's IP address in the client configuration (you may n
 
 When running the client in a Docker container and connecting to Ollama on the host machine, you may encounter CORS (Cross-Origin Resource Sharing) issues. To resolve this, you might need to configure Ollama to accept requests from the client's origin, or use a reverse proxy to handle CORS.
 
+# Ollama Web Client
+
+[... keep the existing content ...]
+
+## Desktop Application
+
+This project can be packaged as a desktop application using Electron, which bundles all dependencies together.
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm (usually comes with Node.js)
+
+### Building the Desktop Application
+
+To build the desktop application:
+
+1. Ensure you are in the project root directory.
+
+2. Install the project dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Build and package the application:
+   ```bash
+   npm run dist
+   ```
+
+4. Once the process completes, you'll find the packaged application in the `release` folder.
+
+### Running the Desktop Application
+
+After building:
+
+1. Navigate to the `release` folder.
+2. Find the appropriate file for your operating system:
+   - For Windows: Look for an `.exe` file
+   - For macOS: Look for a `.dmg` file
+   - For Linux: Look for an `.AppImage` file
+3. Double-click the file to install (Windows/macOS) or run (Linux) the application.
+
+### Note on Ollama Connection
+
+The desktop application still requires Ollama to be running on your machine. Ensure Ollama is installed and running before starting the Ollama Web Client desktop application.
+
 ## Troubleshooting
 
 - Ensure Ollama is running on your local machine (default port: 11434).

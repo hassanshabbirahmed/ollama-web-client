@@ -52,3 +52,6 @@ vite.config.ts.timestamp-*
 
 # Build folder (if different from dist)
 /build
+
+# Electron release folder
+/release
