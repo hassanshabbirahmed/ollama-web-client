@@ -1,58 +1,45 @@
 {
   "name": "ollama-web-client",
-  "private": true,
   "version": "1.0.0",
-  "main": "electron.js",
+  "main": "main.js",
+  "bin": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron:start": "npm run build && electron .",
-    "electron:build": "electron-builder",
-    "dist": "npm run build && npm run electron:build"
+    "package": "npm run build && pkg ."
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-markdown": "^9.0.1",
     "@radix-ui/react-select": "^2.0.0",
-    "@radix-ui/react-slider": "^2.0.0",
+    "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "express": "^4.21.1",
     "lucide-react": "^0.294.0",
+    "open": "^8.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
     "tailwind-merge": "^2.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
-    "electron": "^27.1.3",
-    "electron-builder": "^24.9.1",
+    "pkg": "^5.8.1",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "vite": "^5.0.0"
   },
-  "build": {
-    "appId": "com.yourcompany.ollamawebclient",
-    "productName": "Ollama Web Client",
-    "files": [
-      "dist/**/*",
-      "electron.js",
-      "package.json"
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "assets": "dist/**/*",
+    "targets": [
+      "node18-macos-arm64"
     ],
-    "directories": {
-      "output": "release"
-    },
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "linux": {
-      "target": "AppImage"
-    }
+    "outputPath": "dist"
   }
 }

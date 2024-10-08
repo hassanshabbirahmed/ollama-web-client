@@ -55,3 +55,6 @@ vite.config.ts.timestamp-*
 
 # Electron release folder
 /release
+
+# Electron pkg
+ollama-web-client

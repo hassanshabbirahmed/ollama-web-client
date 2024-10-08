@@ -9,6 +9,14 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
+    css: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
   server: {
     port: 3000,
   },
