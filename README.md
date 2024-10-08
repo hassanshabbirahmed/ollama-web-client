@@ -66,6 +66,64 @@ npm run build
 
 This will generate a `dist` folder with the compiled assets.
 
+## Love Docker, do we?
+
+This project includes Docker support for easy deployment and distribution.
+
+### Prerequisites
+
+- Docker installed on your machine
+
+### Building the Docker Image
+
+To build the Docker image, follow these steps:
+
+1. Ensure you are in the project root directory containing the Dockerfile.
+
+2. Run the following command to build the image:
+
+   ```bash
+   docker build -t ollama-web-client .
+   ```
+
+   This command builds a Docker image with the tag `ollama-web-client` using the Dockerfile in the current directory. The `.` at the end specifies the build context (current directory).
+
+3. Wait for the build process to complete. This may take a few minutes depending on your internet speed and machine performance.
+
+4. Once completed, you can verify the image has been created by running:
+
+   ```bash
+   docker images
+   ```
+
+   You should see `ollama-web-client` in the list of images.
+
+### Running the Docker Container
+
+After building the image, you can run the container with:
+
+```bash
+docker run -p 8080:80 ollama-web-client
+```
+
+This will start the Ollama Web Client, and you can access it at `http://localhost:8080` in your web browser.
+
+### Connecting to Ollama
+
+By default, the client tries to connect to Ollama at `http://localhost:11434`. When running in Docker, you'll need to ensure that the container can reach your Ollama instance.
+
+If Ollama is running on your host machine, you can use host networking:
+
+```bash
+docker run --network host ollama-web-client
+```
+
+Or, provide the host machine's IP address in the client configuration (you may need to modify the source code to accept a configurable Ollama URL).
+
+### Note on CORS
+
+When running the client in a Docker container and connecting to Ollama on the host machine, you may encounter CORS (Cross-Origin Resource Sharing) issues. To resolve this, you might need to configure Ollama to accept requests from the client's origin, or use a reverse proxy to handle CORS.
+
 ## Troubleshooting
 
 - Ensure Ollama is running on your local machine (default port: 11434).
