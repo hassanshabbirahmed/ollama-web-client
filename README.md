@@ -17,7 +17,7 @@ Before you begin, ensure you have met the following requirements:
 
 - Node.js (v14 or later)
 - npm (usually comes with Node.js)
-- Ollama installed and running on your local machine (default port: 11434)
+- [Ollama installed](https://github.com/ollama/ollama?tab=readme-ov-file#ollama) and running on your local machine (default port: 11434)
 
 ## Installation
 
