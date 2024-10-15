@@ -124,10 +124,6 @@ Or, provide the host machine's IP address in the client configuration (you may n
 
 When running the client in a Docker container and connecting to Ollama on the host machine, you may encounter CORS (Cross-Origin Resource Sharing) issues. To resolve this, you might need to configure Ollama to accept requests from the client's origin, or use a reverse proxy to handle CORS.
 
-# Ollama Web Client
-
-[... keep the existing content ...]
-
 ## Desktop Application
 
 This project can be packaged as a desktop application using Electron, which bundles all dependencies together.
